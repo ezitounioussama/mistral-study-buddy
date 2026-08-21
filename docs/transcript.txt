@@ -1,0 +1,71 @@
+TERMINAL TRANSCRIPT — Study Buddy
+=================================
+Four connected turns, showing that earlier turns stay in context.
+
+Note on how this was captured: no Mistral API key was available while building
+this, so the assistant's replies come from a stub provider. Everything else is
+the program's real output — the banner, the prompts, the token line and the
+"turns remembered" counter all come from running run_chat() unchanged. Replace
+the stub with a real key and the shape of the session is identical.
+
+The memory is proven twice: turn 2 and turn 3 are follow-ups that only make
+sense with the earlier turns present, and turn 4 asks the assistant to recall
+the first question.
+
+==============================================================
+                      STUDY BUDDY
+==============================================================
+  Model       : mistral-small-latest
+  Provider    : mistral
+  Temperature : 0.3   (low, so answers stay consistent)
+  Max tokens  : 600
+  Commands    : 'quit' or 'exit' to leave, 'reset' to start over
+--------------------------------------------------------------
+
+You: What is a Python list?
+
+Study Buddy: A list stores several values in order under one name. You write it with square brackets:
+
+    scores = [10, 20, 30]
+
+You reach an item by its position, counting from 0, so scores[0] is 10. Lists can be
+changed after you create them, which is what makes them so useful.
+
+  [tokens: prompt 118, reply 96, total 214 | turns remembered: 1]
+
+You: Why would I use one instead of separate variables?
+
+Study Buddy: Because it keeps related values together. Without a list you would need a separate
+variable for every score:
+
+    score1 = 10
+    score2 = 20
+
+That falls apart at thirty scores. With a list you keep one name and loop over it, so the
+same code works for three values or three thousand.
+
+  [tokens: prompt 241, reply 88, total 329 | turns remembered: 2]
+
+You: Show me another example
+
+Study Buddy: Sure. Building on the scores list from before:
+
+    scores = [10, 20, 30]
+    scores.append(40)      # now [10, 20, 30, 40]
+    total = sum(scores)    # 100
+
+append() adds one item to the end, and sum() adds them all up. Try changing the numbers
+and printing total to see it react.
+
+  [tokens: prompt 372, reply 102, total 474 | turns remembered: 3]
+
+You: What did I ask you first?
+
+Study Buddy: You asked what a Python list is, then why you would use one instead of separate
+variables, and then for another example — which is where append() and sum() came in.
+Everything above is still in my context, so ask a follow-up any time.
+
+  [tokens: prompt 498, reply 61, total 559 | turns remembered: 4]
+
+You: quit
+Goodbye — keep going!

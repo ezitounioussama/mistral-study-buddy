@@ -1,0 +1,8 @@
+mistralai>=1.0.0
+python-dotenv>=1.0.0
+
+# Optional: only needed for the --openai stretch goal
+openai>=1.40.0
+
+# Testing
+pytest>=8.0.0

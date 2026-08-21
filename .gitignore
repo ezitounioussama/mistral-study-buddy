@@ -1,0 +1,19 @@
+# The API key must never be committed
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Testing
+.pytest_cache/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+.gstack/
+.gstack/
