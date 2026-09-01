@@ -10,13 +10,13 @@ removed from the history rather than left in, so a dropped connection doesn't re
 next turn.
 
 ```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+uv venv
+uv pip install -r requirements.txt
 cp .env.example .env          # then paste your MISTRAL_API_KEY
 
-python study_buddy.py            # mistralai SDK
-python study_buddy.py --openai   # same model, OpenAI-compatible endpoint
-python -m pytest tests.py -q     # 32 passed, no key needed
+uv run python study_buddy.py            # mistralai SDK
+uv run python study_buddy.py --openai   # same model, OpenAI-compatible endpoint
+uv run pytest tests.py -q               # 32 passed, no key needed
 ```
 
 ## Also in this repo
